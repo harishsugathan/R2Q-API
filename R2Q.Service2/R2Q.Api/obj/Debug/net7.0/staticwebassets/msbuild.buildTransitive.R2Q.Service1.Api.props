@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\R2Q.Service1.Api.props" />
+</Project>

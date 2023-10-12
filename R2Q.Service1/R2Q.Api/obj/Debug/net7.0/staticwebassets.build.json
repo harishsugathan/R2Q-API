@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "7FnqnoVHLe9+WHCVjbGvV14I48dpsxPMZ5k1KCb6QB8=",
+  "Source": "R2Q.Service1.Api",
+  "BasePath": "_content/R2Q.Service1.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

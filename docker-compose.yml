@@ -1,0 +1,236 @@
+version: '3.4'
+
+services:
+
+  ############################
+  # Redis state store
+  ############################
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379" 
+    networks:
+      hello-dapr:
+        ipv4_address: 172.18.0.7
+        
+  ############################
+   # Zipkin Tracing
+  ############################
+  zipkin:
+    image: openzipkin/zipkin-slim:latest
+    ports:
+      - "9411:9411"
+    networks:
+      hello-dapr:
+        ipv4_address: 172.18.0.8
+  ############################
+  # Rabbitmq Pub sub
+  ############################
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672" # RabbitMQ main port
+      - "15672:15672" # RabbitMQ management UI port
+    #environment:
+    #  - RABBITMQ_DEFAULT_USER=r2q
+    #  - RABBITMQ_DEFAULT_PASS=pass
+    networks:
+      hello-dapr:
+        ipv4_address: 172.18.0.9
+  
+  ############################
+  # Service1 app + Dapr sidecar
+  ############################
+  r2q-service1: 
+    build:
+      context: ./R2Q.Service1
+      dockerfile: R2Q.Api/Dockerfile 
+    ports:
+      - "3500:3500"
+      - "50006:50001"
+    image: r2q-service1-api:latest
+    networks:
+      - hello-dapr
+
+  r2q-service1-dapr:
+    command: ["./daprd",
+      "-app-id", "r2q-service1",
+      "-app-port", "80",      
+      "-placement-host-address", "dapr-placement:50000",
+      "-components-path", "/components",
+      "-config", "/configuration/R2Q-config.yaml"
+      ]    
+    #environment:
+    #  - DAPR_HTTP_TRACING_ENABLED=true
+    #  - DAPR_HTTP_TRACING_SAMPLER_TYPE=probabilistic
+    #  - DAPR_HTTP_TRACING_SAMPLER_PARAM=1.0
+    #  - DAPR_HTTP_TRACING_ZIPKIN_ENDPOINT=http://0.0.0.0:9411/api/v2/spans
+    #  - DAPR_SERVICE_NAME=r2q-service1
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
+    image: "daprio/daprd:edge"
+    network_mode: "service:r2q-service1"
+    depends_on:
+      - r2q-service1
+      - zipkin
+
+  ############################
+  # Service2 app + Dapr sidecar
+  ############################
+  r2q-service2: 
+    build:
+      context: ./R2Q.Service2
+      dockerfile: R2Q.Api/Dockerfile 
+    ports:
+      - "3501:3501"
+      - "50007:50001"
+    image: r2q-service2-api:latest
+    networks:
+      - hello-dapr
+
+  r2q-service2-dapr:
+    command: ["./daprd",
+      "-app-id", "r2q-service2",
+      "-app-port", "80",
+      "-placement-host-address", "dapr-placement:50000",
+      "-components-path", "/components",
+      "-config", "/configuration/R2Q-config.yaml"
+      ]    
+    #environment:
+    #  - DAPR_HTTP_TRACING_ENABLED=true
+    #  - DAPR_HTTP_TRACING_SAMPLER_TYPE=probabilistic
+    #  - DAPR_HTTP_TRACING_SAMPLER_PARAM=1.0
+    #  - DAPR_HTTP_TRACING_ZIPKIN_ENDPOINT=http://localhost:9411/api/v2/spans
+    #  - DAPR_SERVICE_NAME=r2q-service2
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
+    image: "daprio/daprd:edge"
+    network_mode: "service:r2q-service2"
+    depends_on:
+      - r2q-service2
+      - zipkin
+  
+  ############################
+  # Service3 app + Dapr sidecar
+  ############################
+  r2q-service3: 
+    build:
+      context: ./R2Q.Service3
+      dockerfile: R2Q.Api/Dockerfile 
+    ports:
+      - "3502:3502"
+      - "50008:50001"
+    image: r2q-service3-api:latest
+    networks:
+      - hello-dapr
+
+  r2q-service3-dapr:
+    command: ["./daprd",
+      "-app-id", "r2q-service3",
+      "-app-port", "80",
+      "-placement-host-address", "dapr-placement:50000",
+      "-components-path", "/components",
+      "-config", "/configuration/R2Q-config.yaml"
+      ]    
+    #environment:
+    #  - DAPR_HTTP_TRACING_ENABLED=true
+    #  - DAPR_HTTP_TRACING_SAMPLER_TYPE=probabilistic
+    #  - DAPR_HTTP_TRACING_SAMPLER_PARAM=1.0
+    #  - DAPR_HTTP_TRACING_ZIPKIN_ENDPOINT=http://localhost:9411/api/v2/spans
+    #  - DAPR_SERVICE_NAME=r2q-service3
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
+    image: "daprio/daprd:edge"
+    network_mode: "service:r2q-service3"
+    depends_on:
+      - r2q-service3
+      - zipkin
+  ############################
+  # Dapr placement service
+  ############################
+  dapr-placement:    
+    image: "daprio/dapr:edge"
+    command: ["./placement", "-port", "50000", "-log-level", "debug"]
+    ports:
+      - "50000:50000"
+    networks:
+      - hello-dapr
+  ############################
+  dapr-dashboard:
+    image: "daprio/dashboard:latest"
+    command: [ "--docker-compose=true", 
+      "--components-path=/components", 
+      "--config-path=/configuration", 
+      "--docker-compose-path=/docker-compose.yml" ]
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
+      - ./docker-compose.yml:/docker-compose.yml
+    networks:
+      - hello-dapr
+  ############################
+  # Jaeger
+  ############################ 
+  #jaeger:
+  #  image: jaegertracing/all-in-one:latest
+  #  container_name: jaeger
+  #  ports:
+  #    - "16686:16686"
+  #    - "9412:9412"
+  #  environment:
+  #    - COLLECTOR_ZIPKIN_HOST_PORT=:9412
+  #  restart: always
+  #  networks:
+  #    hello-dapr:
+  #      ipv4_address: 172.18.0.9
+  #jaeger:
+  #  container_name: 'tracing.jaeger.agent'
+  #  image: jaegertracing/all-in-one:latest
+  #  ports:
+  #    - "5775:5775/udp"
+  #    - "6831:6831/udp"
+  #    - "6832:6832/udp"
+  #    - "5778:5778"
+  #    - "16686:16686"
+  #    - "14268:14268"
+  #    - "9411:9411"
+  #  environment:
+  #    - COLLECTOR_ZIPKIN_HTTP_PORT=9411
+  #  labels:
+  #      NAME: "jaeger-agent"
+  #signoz:
+  #  image: signoz/signoz:latest
+  #  ports:
+  #    - "16686:16686" # Jaeger UI port
+  #    - "3000:3000"   # Signoz frontend port
+  #  volumes:
+  #    - signoz_data:/app/data
+  #postgres:
+  #  container_name: postgres
+  #  image: postgres
+  #  environment:
+  #    POSTGRES_PASSWORD: mysecretpassword
+  #  ports:
+  #    - "5432:5432"
+  #  volumes:
+  #    - /path/to/local/data:/var/lib/postgresql/data
+
+  #mongodb_container:
+  #  image: mongo:latest
+  #  environment:
+  #    MONGO_INITDB_ROOT_USERNAME: root
+  #    MONGO_INITDB_ROOT_PASSWORD: rootpassword
+  #  ports:
+  #    - 27017:27017
+
+networks:
+  hello-dapr:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16

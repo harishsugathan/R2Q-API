@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\R2Q.Application",
+    "\\R2Q.Application\\Requests",
+    "\\R2Q.Application\\Requests\\HealthCheck",
+    "\\R2Q.Application\\Requests\\Vendor",
+    "\\R2Q.Healthcheck",
+    "\\R2Q.Infrastructure",
+    "\\R2Q.Infrastructure\\Implementations",
+    "\\R2Q.Infrastructure\\Implementations\\DaprServices"
+  ],
+  "SelectedNode": "\\R2Q.Infrastructure\\Implementations\\DaprServices\\DaprService.cs",
+  "PreviewInSolutionExplorer": false
+}

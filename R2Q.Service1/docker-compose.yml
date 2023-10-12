@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  r2q.service1.api:
+    image: ${DOCKER_REGISTRY-}r2qservice1api
+    build:
+      context: .
+      dockerfile: R2Q.Api/Dockerfile

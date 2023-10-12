@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "R2Q.Common/1.0.0": {
+        "runtime": {
+          "R2Q.Common.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "R2Q.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

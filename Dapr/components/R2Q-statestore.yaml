@@ -1,0 +1,21 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: r2qdapr-statestore
+  namespace: r2q
+spec:
+  type: state.redis
+  version: v1
+  metadata:
+  - name: redisHost
+    value: 172.18.0.7:6379
+  - name: redisPassword
+    value: ""
+  - name: actorStateStore
+    value: "true"
+auth:
+  secretStore: r2qdapr-secretstore
+scopes:
+- r2q-service1-api
+- r2q-service2-api
+- r2q-service3-api
