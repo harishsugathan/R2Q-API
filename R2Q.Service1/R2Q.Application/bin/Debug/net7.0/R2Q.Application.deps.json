@@ -17,6 +17,18 @@
           "R2Q.Application.dll": {}
         }
       },
+      "Dapr.AspNetCore/1.11.0": {
+        "dependencies": {
+          "Dapr.Client": "1.11.0",
+          "System.IO.Pipelines": "5.0.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Dapr.AspNetCore.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.11.0.0"
+          }
+        }
+      },
       "Dapr.Client/1.11.0": {
         "dependencies": {
           "Google.Api.CommonProtos": "2.2.0",
@@ -284,6 +296,7 @@
       "System.Runtime.CompilerServices.Unsafe/4.5.2": {},
       "R2Q.Common/1.0.0": {
         "dependencies": {
+          "Dapr.AspNetCore": "1.11.0",
           "Dapr.Client": "1.11.0",
           "FluentValidation": "11.7.1",
           "MediatR": "12.1.1",
@@ -317,6 +330,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Dapr.AspNetCore/1.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3afB7TjSGuG/fehzQ2TjbziWOTYWx89aQEftXlI41vd603Op7+jf/QOaESiV5RTWJVL0OtifT7Yu3D2GyeqjBQ==",
+      "path": "dapr.aspnetcore/1.11.0",
+      "hashPath": "dapr.aspnetcore.1.11.0.nupkg.sha512"
     },
     "Dapr.Client/1.11.0": {
       "type": "package",

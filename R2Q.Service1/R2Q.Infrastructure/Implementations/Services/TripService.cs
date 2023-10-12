@@ -22,7 +22,7 @@ namespace R2Q.Infrastructure.Implementations.Services
 
         public async Task UpdateAsync(TripData trip, string accessToken)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, "api/v1/trip")
+            var request = new HttpRequestMessage(HttpMethod.Post, "api/v1/health/ping")
             {
                 Content = JsonContent.Create(trip)
             };

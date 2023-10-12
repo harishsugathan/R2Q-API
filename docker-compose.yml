@@ -49,8 +49,8 @@ services:
       POSTGRES_DB: mydatabase
     ports:
       - "5432:5432"
-    volumes:
-      - './data:/var/lib/postgresql/data:Z'
+    #volumes:
+    #  - './data:/var/lib/postgresql/data:Z'
     networks:
       - hello-dapr
   ############################# 
@@ -83,7 +83,8 @@ services:
       "-app-port", "80",      
       "-placement-host-address", "dapr-placement:50000",
       "-components-path", "/components",
-      "-config", "/configuration/R2Q-config.yaml"
+      "-config", "/configuration/R2Q-config.yaml",
+      "-dapr-http-port", "3500"
       ]   
     volumes:
       - "./dapr/components/:/components"
@@ -114,7 +115,8 @@ services:
       "-app-port", "80",
       "-placement-host-address", "dapr-placement:50000",
       "-components-path", "/components",
-      "-config", "/configuration/R2Q-config.yaml"
+      "-config", "/configuration/R2Q-config.yaml",
+      "-dapr-http-port", "3501"
       ]  
     volumes:
       - "./dapr/components/:/components"
@@ -145,7 +147,8 @@ services:
       "-app-port", "80",
       "-placement-host-address", "dapr-placement:50000",
       "-components-path", "/components",
-      "-config", "/configuration/R2Q-config.yaml"
+      "-config", "/configuration/R2Q-config.yaml",
+      "-dapr-http-port", "3502"
       ]  
     volumes:
       - "./dapr/components/:/components"

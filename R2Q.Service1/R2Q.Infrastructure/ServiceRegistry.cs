@@ -58,7 +58,7 @@ namespace R2Q.Infrastructure
         public static void AddCustomApplicationServices(IServiceCollection services)
         {
             services.AddSingleton<ITripService, TripService>(
-                _ => new TripService(DaprClient.CreateInvokeHttpClient("r2q-service3")));
+                _ => new TripService(DaprClient.CreateInvokeHttpClient("r2q-service3", "http://localhost:3500")));
 
         }
         /// <summary>

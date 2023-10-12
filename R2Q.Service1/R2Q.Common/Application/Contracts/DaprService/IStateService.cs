@@ -10,5 +10,6 @@ namespace R2Q.Common.Application.Contracts.DaprService
     {
         Task<T> GetStateAsync<T>(string key);
         Task SaveStateAsync(string key, object value);
+        Task DeleteStateAsync(string key);
     }
 }

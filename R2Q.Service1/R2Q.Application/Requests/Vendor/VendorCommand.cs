@@ -7,6 +7,7 @@ using R2Q.Application.Contracts.Services.Models;
 using R2Q.Application.Dtos;
 using R2Q.Application.Dtos.Vendor;
 using R2Q.Application.IntegrationEvents;
+using R2Q.Common.Application.Contracts.DaprService;
 using R2Q.Common.Application.Contracts.DaprService.EventBus;
 using System.Net;
 
@@ -24,7 +25,7 @@ namespace R2Q.Application.Requests.Vendor
         /// <summary>
         /// Authorization token
         /// </summary>
-        public string Authorization { get; set;}
+        public string Authorization { get; set; }
 
 
     }
@@ -45,20 +46,28 @@ namespace R2Q.Application.Requests.Vendor
         /// The logger
         /// </summary>
         private readonly ILogger<VendorCommandCommandHandler> logger;
-
+        /// <summary>
+        /// Event
+        /// </summary>
         private readonly IEventBus eventBus;
+        /// <summary>
+        /// Event
+        /// </summary>
+        private readonly IStateService state;
         /// <summary>
         /// 
         /// </summary>
         /// <param name="configuration"></param>
         /// <param name="dapr"></param>
         /// <param name="logger"></param>
-        public VendorCommandCommandHandler(IConfiguration configuration, ILogger<VendorCommandCommandHandler> logger, IEventBus eventBus)
+        public VendorCommandCommandHandler(ITripService tripService,IConfiguration configuration, ILogger<VendorCommandCommandHandler> logger, IEventBus eventBus, IStateService state)
         {
+            this.tripService = tripService;
             this.configuration = configuration;
             this.tripService = tripService;
             this.logger = logger;
             this.eventBus = eventBus;
+            this.state = state;
         }
         /// <summary>
         /// 
@@ -74,10 +83,15 @@ namespace R2Q.Application.Requests.Vendor
 
             var eventMessage = new VenderCreatedIntegrationEvent(eventRequestId, "1");
 
+            // Get state
+            //var result = state.GetStateAsync<string>("key");
             // Publish event
-            await eventBus.PublishAsync(eventMessage);
+            //await eventBus.PublishAsync(eventMessage);
             // Invoke Service
-            var tripData =new TripData();
+            var tripData = new TripData();
+            tripData.Items = new List<TripDataItem>();
+            var tripDataDetails = new TripDataItem(1,"trip");
+            tripData.Items.Add(tripDataDetails);
             await tripService.UpdateAsync(tripData, request.Authorization.Substring("Bearer ".Length));
 
 

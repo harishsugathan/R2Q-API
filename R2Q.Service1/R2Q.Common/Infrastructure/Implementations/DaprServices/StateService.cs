@@ -1,11 +1,8 @@
 ﻿
-using Dapr.Client;
-using Grpc.Net.Client.Configuration;
+
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using R2Q.Common.Application.Constants;
 using R2Q.Common.Application.Contracts.DaprService;
-using System.Reflection.Metadata;
 
 namespace R2Q.Common.Infrastructure.Implementations.DaprServices
 {
@@ -24,6 +21,10 @@ namespace R2Q.Common.Infrastructure.Implementations.DaprServices
         public async Task SaveStateAsync(string key, object value)
         {
             await daprClient.SaveStateAsync(Constants.stateStoreName, key, value);
+        }
+        public async Task DeleteStateAsync(string key)
+        {
+            await daprClient.DeleteStateAsync(Constants.stateStoreName, key);
         }
     }
 }
