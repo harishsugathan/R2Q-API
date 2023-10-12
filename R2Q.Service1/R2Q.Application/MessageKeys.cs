@@ -9,6 +9,7 @@
         #region Vendor
         public const string FirstNameMandatory = "Messages.FirstNameMandatory";
         public const string FirstNameLimitExceeds = "Messages.FirstNameLimitExceeds";
+        public const string TokenMandatory = "Messages.Token";
         #endregion Vendor
 
         #region Login

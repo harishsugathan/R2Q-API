@@ -23,9 +23,9 @@ namespace R2Q.Api.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("vendor/createvendor")]
-        public async Task<IActionResult> CreateVendor(string name)
+        public async Task<IActionResult> CreateVendor(string name, string authorization)
         {
-            return Ok(await Mediator.Send(new VendorCommand { VendorName = name }));
+            return Ok(await Mediator.Send(new VendorCommand { VendorName = name, Authorization = authorization }));
         }
         /// <summary>
         /// Get vendor

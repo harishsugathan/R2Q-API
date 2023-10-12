@@ -22,3 +22,15 @@ C:\Users\harish.sugathan\r2q-api\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\R
 C:\Users\harish.sugathan\r2q-api\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\refint\R2Q.Healthcheck.dll
 C:\Users\harish.sugathan\r2q-api\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\R2Q.Healthcheck.pdb
 C:\Users\harish.sugathan\r2q-api\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\ref\R2Q.Healthcheck.dll
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\bin\Debug\net7.0\R2Q.Healthcheck.deps.json
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\bin\Debug\net7.0\R2Q.Healthcheck.dll
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\bin\Debug\net7.0\R2Q.Healthcheck.pdb
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\R2Q.Healthcheck.csproj.AssemblyReference.cache
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\R2Q.Healthcheck.GeneratedMSBuildEditorConfig.editorconfig
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\R2Q.Healthcheck.AssemblyInfoInputs.cache
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\R2Q.Healthcheck.AssemblyInfo.cs
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\R2Q.Healthcheck.csproj.CoreCompileInputs.cache
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\R2Q.Healthcheck.dll
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\refint\R2Q.Healthcheck.dll
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\R2Q.Healthcheck.pdb
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Healthcheck\obj\Debug\net7.0\ref\R2Q.Healthcheck.dll

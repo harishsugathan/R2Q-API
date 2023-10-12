@@ -4,6 +4,8 @@ using System.Reflection;
 using FluentValidation.AspNetCore;
 using R2Q.Common.Application.Behaviors;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Builder;
+using R2Q.Application.Contracts.Services;
 
 namespace R2Q.Application
 {

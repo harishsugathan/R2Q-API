@@ -29,5 +29,6 @@ public class DaprEventBus : IEventBus
         // which can be accomplished by casting the event to dynamic. This ensures
         // that all event fields are properly serialized.
         await dapr.PublishEventAsync(Constants.pubSubName, topicName, (object)integrationEvent);
+
     }
 }

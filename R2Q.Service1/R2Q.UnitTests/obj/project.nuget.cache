@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "utW4oj7Q0Qwp4JSwARGef4b/YrcCozTZN259zyMZcj0GKloSjH47bjW50Ssi5WYqAWAY/aa0nIX9C9GWCA+XPQ==",
+  "dgSpecHash": "3Imp7Fss8mF4eY7Rv2pyQh6LttlhA9LfQoWV3XTRBaoFe9I6Vb7NyLRjzbZMGUb8K8XjmWwAMr4nNg2rgqoNxg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\harish.sugathan\\r2q-api\\R2Q.Service1\\R2Q.UnitTests\\R2Q.UnitTests.csproj",
+  "projectFilePath": "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.UnitTests\\R2Q.UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\harish.sugathan\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\harish.sugathan\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",

@@ -2,10 +2,13 @@
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using R2Q.Application.Contracts.Services;
+using R2Q.Application.Contracts.Services.Models;
 using R2Q.Application.Dtos;
 using R2Q.Application.Dtos.Vendor;
 using R2Q.Application.IntegrationEvents;
 using R2Q.Common.Application.Contracts.DaprService.EventBus;
+using System.Net;
 
 namespace R2Q.Application.Requests.Vendor
 {
@@ -18,6 +21,11 @@ namespace R2Q.Application.Requests.Vendor
         /// VendorName
         /// </summary>
         public string VendorName { get; set; }
+        /// <summary>
+        /// Authorization token
+        /// </summary>
+        public string Authorization { get; set;}
+
 
     }
     /// <summary>
@@ -25,6 +33,10 @@ namespace R2Q.Application.Requests.Vendor
     /// </summary>
     public class VendorCommandCommandHandler : IRequestHandler<VendorCommand, ResponseDto<VendorDto>>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        private readonly ITripService tripService;
         /// <summary>
         /// The IConfiguration
         /// </summary>
@@ -44,6 +56,7 @@ namespace R2Q.Application.Requests.Vendor
         public VendorCommandCommandHandler(IConfiguration configuration, ILogger<VendorCommandCommandHandler> logger, IEventBus eventBus)
         {
             this.configuration = configuration;
+            this.tripService = tripService;
             this.logger = logger;
             this.eventBus = eventBus;
         }
@@ -61,10 +74,12 @@ namespace R2Q.Application.Requests.Vendor
 
             var eventMessage = new VenderCreatedIntegrationEvent(eventRequestId, "1");
 
-            // Once basket is checkout, sends an integration event to
-            // ordering.api to convert basket to order and proceed with
-            // order creation process
+            // Publish event
             await eventBus.PublishAsync(eventMessage);
+            // Invoke Service
+            var tripData =new TripData();
+            await tripService.UpdateAsync(tripData, request.Authorization.Substring("Bearer ".Length));
+
 
             return responseDto;
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VP6UD4378J/pYoUH8gGHl+8SlxDGF9dUys4wPOSxgb4ZNsVZudKlD+10rFk4MDoTZubJ8VHSkShrpPDKqKrLzA==",
+  "dgSpecHash": "oMCN4bKF7MRMNYtl3DdGPTu0eBWtzEtJk71Evy6w/UUAe9/3n3L1jcB9GIdEGIiFi1pLWMe17S0S6tFGcPLEmg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\harish.sugathan\\r2q-api\\R2Q.Service1\\R2Q.Infrastructure\\R2Q.Infrastructure.csproj",
+  "projectFilePath": "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.Infrastructure\\R2Q.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\harish.sugathan\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\harish.sugathan\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",

@@ -37,7 +37,32 @@ services:
     networks:
       hello-dapr:
         ipv4_address: 172.18.0.9
-  
+  ############################
+  # postgres Db
+  ############################
+  postgres:
+    image: postgres:latest
+    container_name: r2qPostgres
+    environment:
+      POSTGRES_USER: myusername
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - './data:/var/lib/postgresql/data:Z'
+    networks:
+      - hello-dapr
+  ############################# 
+  # Mongo Db
+  ############################
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
   ############################
   # Service1 app + Dapr sidecar
   ############################
@@ -59,13 +84,7 @@ services:
       "-placement-host-address", "dapr-placement:50000",
       "-components-path", "/components",
       "-config", "/configuration/R2Q-config.yaml"
-      ]    
-    #environment:
-    #  - DAPR_HTTP_TRACING_ENABLED=true
-    #  - DAPR_HTTP_TRACING_SAMPLER_TYPE=probabilistic
-    #  - DAPR_HTTP_TRACING_SAMPLER_PARAM=1.0
-    #  - DAPR_HTTP_TRACING_ZIPKIN_ENDPOINT=http://0.0.0.0:9411/api/v2/spans
-    #  - DAPR_SERVICE_NAME=r2q-service1
+      ]   
     volumes:
       - "./dapr/components/:/components"
       - "./dapr/configuration/:/configuration"
@@ -96,13 +115,7 @@ services:
       "-placement-host-address", "dapr-placement:50000",
       "-components-path", "/components",
       "-config", "/configuration/R2Q-config.yaml"
-      ]    
-    #environment:
-    #  - DAPR_HTTP_TRACING_ENABLED=true
-    #  - DAPR_HTTP_TRACING_SAMPLER_TYPE=probabilistic
-    #  - DAPR_HTTP_TRACING_SAMPLER_PARAM=1.0
-    #  - DAPR_HTTP_TRACING_ZIPKIN_ENDPOINT=http://localhost:9411/api/v2/spans
-    #  - DAPR_SERVICE_NAME=r2q-service2
+      ]  
     volumes:
       - "./dapr/components/:/components"
       - "./dapr/configuration/:/configuration"
@@ -133,13 +146,7 @@ services:
       "-placement-host-address", "dapr-placement:50000",
       "-components-path", "/components",
       "-config", "/configuration/R2Q-config.yaml"
-      ]    
-    #environment:
-    #  - DAPR_HTTP_TRACING_ENABLED=true
-    #  - DAPR_HTTP_TRACING_SAMPLER_TYPE=probabilistic
-    #  - DAPR_HTTP_TRACING_SAMPLER_PARAM=1.0
-    #  - DAPR_HTTP_TRACING_ZIPKIN_ENDPOINT=http://localhost:9411/api/v2/spans
-    #  - DAPR_SERVICE_NAME=r2q-service3
+      ]  
     volumes:
       - "./dapr/components/:/components"
       - "./dapr/configuration/:/configuration"
@@ -210,23 +217,9 @@ services:
   #    - "3000:3000"   # Signoz frontend port
   #  volumes:
   #    - signoz_data:/app/data
-  #postgres:
-  #  container_name: postgres
-  #  image: postgres
-  #  environment:
-  #    POSTGRES_PASSWORD: mysecretpassword
-  #  ports:
-  #    - "5432:5432"
-  #  volumes:
-  #    - /path/to/local/data:/var/lib/postgresql/data
+  
 
-  #mongodb_container:
-  #  image: mongo:latest
-  #  environment:
-  #    MONGO_INITDB_ROOT_USERNAME: root
-  #    MONGO_INITDB_ROOT_PASSWORD: rootpassword
-  #  ports:
-  #    - 27017:27017
+ 
 
 networks:
   hello-dapr:

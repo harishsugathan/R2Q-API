@@ -34,3 +34,15 @@ C:\Users\harish.sugathan\r2q-api\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\R2Q.Do
 C:\Users\harish.sugathan\r2q-api\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\refint\R2Q.Domain.dll
 C:\Users\harish.sugathan\r2q-api\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\R2Q.Domain.pdb
 C:\Users\harish.sugathan\r2q-api\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\ref\R2Q.Domain.dll
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\bin\Debug\net7.0\R2Q.Domain.deps.json
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\bin\Debug\net7.0\R2Q.Domain.dll
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\bin\Debug\net7.0\R2Q.Domain.pdb
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\R2Q.Domain.csproj.AssemblyReference.cache
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\R2Q.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\R2Q.Domain.AssemblyInfoInputs.cache
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\R2Q.Domain.AssemblyInfo.cs
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\R2Q.Domain.csproj.CoreCompileInputs.cache
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\R2Q.Domain.dll
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\refint\R2Q.Domain.dll
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\R2Q.Domain.pdb
+C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Domain\obj\Debug\net7.0\ref\R2Q.Domain.dll

@@ -26,6 +26,8 @@ using R2Q.Infrastructure.Implementations.PublishSubscribeNotification;
 using Microsoft.Identity.Web;
 using R2Q.Common.Application.Contracts.Localization;
 using R2Q.Common.Infrastructure.Implementations.Localization;
+using R2Q.Application.Contracts.Services;
+using R2Q.Infrastructure.Implementations.Services;
 
 namespace R2Q.Infrastructure
 {
@@ -48,9 +50,16 @@ namespace R2Q.Infrastructure
             services.AddSingleton<IEncryptionService, AesEncryptionService>();
             services.AddScoped<IThumbnailGeneratorService, ThumbnailGeneratorService>();
             services.AddScoped<IPubSubNotificationService, NotificationService>();
+            AddCustomApplicationServices(services);
             AddLocalizationService(services);
             AddIdentityService(services, configuration);
             return services;
+        }
+        public static void AddCustomApplicationServices(IServiceCollection services)
+        {
+            services.AddSingleton<ITripService, TripService>(
+                _ => new TripService(DaprClient.CreateInvokeHttpClient("r2q-service3")));
+
         }
         /// <summary>
         /// Adds the localization service.

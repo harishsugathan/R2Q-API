@@ -2,6 +2,26 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "Dapr.AspNetCore/1.11.0": {
+        "type": "package",
+        "dependencies": {
+          "Dapr.Client": "1.11.0",
+          "System.IO.Pipelines": "4.7.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Dapr.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Dapr.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Dapr.Client/1.11.0": {
         "type": "package",
         "dependencies": {
@@ -558,6 +578,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "Dapr.AspNetCore": "1.11.0",
           "Dapr.Client": "1.11.0",
           "FluentValidation": "11.7.1",
           "MediatR": "12.1.1",
@@ -590,6 +611,20 @@
     }
   },
   "libraries": {
+    "Dapr.AspNetCore/1.11.0": {
+      "sha512": "3afB7TjSGuG/fehzQ2TjbziWOTYWx89aQEftXlI41vd603Op7+jf/QOaESiV5RTWJVL0OtifT7Yu3D2GyeqjBQ==",
+      "type": "package",
+      "path": "dapr.aspnetcore/1.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dapr.aspnetcore.1.11.0.nupkg.sha512",
+        "dapr.aspnetcore.nuspec",
+        "images/logo-transparent.png",
+        "lib/netcoreapp3.1/Dapr.AspNetCore.dll",
+        "lib/netcoreapp3.1/Dapr.AspNetCore.xml"
+      ]
+    },
     "Dapr.Client/1.11.0": {
       "sha512": "kDkDvJ+wLGpVmKoBpLKmfUzqRnZKHyM/2uv4523FeG9OmbmmGi6un3heWkcJz/K5eAhw0vasTjjJWTwj/QgkKg==",
       "type": "package",
@@ -1407,11 +1442,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\harish.sugathan\\r2q-api\\R2Q.Service1\\R2Q.Application\\R2Q.Application.csproj",
+      "projectUniqueName": "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.Application\\R2Q.Application.csproj",
       "projectName": "R2Q.Application",
-      "projectPath": "C:\\Users\\harish.sugathan\\r2q-api\\R2Q.Service1\\R2Q.Application\\R2Q.Application.csproj",
+      "projectPath": "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.Application\\R2Q.Application.csproj",
       "packagesPath": "C:\\Users\\harish.sugathan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\harish.sugathan\\r2q-api\\R2Q.Service1\\R2Q.Application\\obj\\",
+      "outputPath": "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1433,11 +1468,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\harish.sugathan\\r2q-api\\R2Q.Service1\\R2Q.Common\\R2Q.Common.csproj": {
-              "projectPath": "C:\\Users\\harish.sugathan\\r2q-api\\R2Q.Service1\\R2Q.Common\\R2Q.Common.csproj"
+            "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.Common\\R2Q.Common.csproj": {
+              "projectPath": "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.Common\\R2Q.Common.csproj"
             },
-            "C:\\Users\\harish.sugathan\\r2q-api\\R2Q.Service1\\R2Q.Domain\\R2Q.Domain.csproj": {
-              "projectPath": "C:\\Users\\harish.sugathan\\r2q-api\\R2Q.Service1\\R2Q.Domain\\R2Q.Domain.csproj"
+            "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.Domain\\R2Q.Domain.csproj": {
+              "projectPath": "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.Domain\\R2Q.Domain.csproj"
             }
           }
         }

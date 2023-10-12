@@ -10,6 +10,8 @@ namespace R2Q.Application.Requests.Vendor
             RuleFor(x => x.VendorName)
                    .NotEmpty().WithMessage(MessageKeys.FirstNameMandatory)
                    .MaximumLength(100).WithMessage(MessageKeys.FirstNameLimitExceeds);
+            RuleFor(x => x.Authorization)
+                   .NotEmpty().WithMessage(MessageKeys.TokenMandatory);
         }
     }
 }

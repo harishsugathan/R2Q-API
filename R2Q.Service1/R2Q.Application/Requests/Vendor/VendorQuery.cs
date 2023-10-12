@@ -4,6 +4,8 @@ using R2Q.Application.Dtos;
 using R2Q.Application.Dtos.Vendor;
 using Microsoft.Extensions.Logging;
 using R2Q.Common.Application.Contracts.DaprService;
+using R2Q.Application.Contracts.Services;
+using System.Net;
 
 namespace R2Q.Application.Requests.Vendor
 {
@@ -23,15 +25,10 @@ namespace R2Q.Application.Requests.Vendor
     /// </summary>
     public class VendorQueryHandler : IRequestHandler<VendorQuery, ResponseDto<VendorDto>>
     {
-
         /// <summary>
         /// The Configuration Service to access configurable keys and values
         /// </summary>
         private readonly IConfiguration configuration;
-        /// <summary>
-        /// 
-        /// </summary>
-        private readonly IInvokeService daprInvoke;
 
         /// <summary>
         /// The logger
@@ -43,10 +40,9 @@ namespace R2Q.Application.Requests.Vendor
         /// <param name="configuration"></param>
         /// <param name="dapr"></param>
         /// <param name="logger"></param>
-        public VendorQueryHandler(IConfiguration configuration, IInvokeService daprInvoke, ILogger<VendorQueryHandler> logger)
+        public VendorQueryHandler(IConfiguration configuration, ITripService tripService, ILogger<VendorQueryHandler> logger)
         {
             this.configuration = configuration;
-            this.daprInvoke = daprInvoke;
             this.logger = logger;
         }
         /// <summary>
@@ -59,7 +55,7 @@ namespace R2Q.Application.Requests.Vendor
         {
             var responseDto = new ResponseDto<VendorDto>();
 
-            var response = daprInvoke.InvokeOtherServiceAsync<string>(HttpMethod.Get, "r2q-service3", "api/v1/health/ping");
+            var response = "";
 
             if (response != null)
             {

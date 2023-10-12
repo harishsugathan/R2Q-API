@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Q5Ki4c8ArQtuRgqS8y3h7FrBZP/rKpOlXnoCAqygI8N6pO3AhZbltJDNwzTSODL1oVf8fqwWawydLJ7a+e6mCg==",
+  "dgSpecHash": "3SLeLlgh6ywof8x7wPZ+FB9LLVPBjAqFUZUnw1YeTZFlSTuZNCy4z1xcnWlsYNG8ONvcxxVWsDCC0CQlRH2++w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\harish.sugathan\\r2q-api\\R2Q.Service1\\R2Q.Application\\R2Q.Application.csproj",
+  "projectFilePath": "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.Application\\R2Q.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\harish.sugathan\\.nuget\\packages\\dapr.aspnetcore\\1.11.0\\dapr.aspnetcore.1.11.0.nupkg.sha512",
     "C:\\Users\\harish.sugathan\\.nuget\\packages\\dapr.client\\1.11.0\\dapr.client.1.11.0.nupkg.sha512",
     "C:\\Users\\harish.sugathan\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\harish.sugathan\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
