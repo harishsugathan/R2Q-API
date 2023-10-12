@@ -1,1 +1,1 @@
-﻿global using Dapr.Client
+﻿global using Dapr.Client;
