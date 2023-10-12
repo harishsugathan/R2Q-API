@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = R2Q.Config
-build_property.ProjectDir = C:\Users\harish.sugathan\r2q-api\R2Q.Service1\R2Q.Config\
+build_property.ProjectDir = C:\r2q-api-12-Oct\R2Q.Service1\R2Q.Config\
