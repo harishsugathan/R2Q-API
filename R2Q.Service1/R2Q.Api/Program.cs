@@ -5,7 +5,7 @@ using Serilog.Formatting.Compact;
 using R2Q.Application;
 using R2Q.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using Dapr.Client;
+using Google.Api;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Async(x => x.Console(new CompactJsonFormatter()))
@@ -43,10 +43,6 @@ builder.Services.AddControllers()
                 .AddDapr()
                 .AddOData(opt => opt.Select().Filter().Expand().OrderBy().Count().SetMaxTop(null));
 
-builder.Services.AddSingleton<DaprClient>(sp =>
-{
-    return new DaprClientBuilder().Build();
-});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors(p => p.AddPolicy("R2QCors", builder =>
 {
@@ -65,7 +61,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddCommonServices(builder.Configuration);
-
+builder.Services.AddDaprClient();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

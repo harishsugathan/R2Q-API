@@ -2,27 +2,7 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "Dapr.AspNetCore/1.11.0": {
-        "type": "package",
-        "dependencies": {
-          "Dapr.Client": "1.11.0",
-          "System.IO.Pipelines": "4.7.2"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Dapr.AspNetCore.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Dapr.AspNetCore.dll": {
-            "related": ".xml"
-          }
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "Dapr.Client/1.11.0": {
+      "Dapr.Client/1.9.0": {
         "type": "package",
         "dependencies": {
           "Google.Api.CommonProtos": "2.2.0",
@@ -485,28 +465,14 @@
     }
   },
   "libraries": {
-    "Dapr.AspNetCore/1.11.0": {
-      "sha512": "3afB7TjSGuG/fehzQ2TjbziWOTYWx89aQEftXlI41vd603Op7+jf/QOaESiV5RTWJVL0OtifT7Yu3D2GyeqjBQ==",
+    "Dapr.Client/1.9.0": {
+      "sha512": "a/tHunAH/Q8omFMtjXdKnfzrtl7AIpKk0f0Hp3tAxgTD0W5lxhMApADuRiDfm9Je2riXE2P0hJK980m40dhCmQ==",
       "type": "package",
-      "path": "dapr.aspnetcore/1.11.0",
+      "path": "dapr.client/1.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "dapr.aspnetcore.1.11.0.nupkg.sha512",
-        "dapr.aspnetcore.nuspec",
-        "images/logo-transparent.png",
-        "lib/netcoreapp3.1/Dapr.AspNetCore.dll",
-        "lib/netcoreapp3.1/Dapr.AspNetCore.xml"
-      ]
-    },
-    "Dapr.Client/1.11.0": {
-      "sha512": "kDkDvJ+wLGpVmKoBpLKmfUzqRnZKHyM/2uv4523FeG9OmbmmGi6un3heWkcJz/K5eAhw0vasTjjJWTwj/QgkKg==",
-      "type": "package",
-      "path": "dapr.client/1.11.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "dapr.client.1.11.0.nupkg.sha512",
+        "dapr.client.1.9.0.nupkg.sha512",
         "dapr.client.nuspec",
         "images/logo-transparent.png",
         "lib/netcoreapp3.1/Dapr.Client.dll",
@@ -1192,8 +1158,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Dapr.AspNetCore >= 1.11.0",
-      "Dapr.Client >= 1.11.0",
+      "Dapr.Client >= 1.9.0",
       "FluentValidation >= 11.7.1",
       "MediatR >= 12.1.1",
       "Microsoft.AspNetCore.Http.Features >= 5.0.17",
@@ -1252,13 +1217,9 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
-          "Dapr.AspNetCore": {
-            "target": "Package",
-            "version": "[1.11.0, )"
-          },
           "Dapr.Client": {
             "target": "Package",
-            "version": "[1.11.0, )"
+            "version": "[1.9.0, )"
           },
           "FluentValidation": {
             "target": "Package",

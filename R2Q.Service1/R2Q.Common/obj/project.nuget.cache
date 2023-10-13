@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7KJzb51EEwko1+TPaHLeS6/DXUWoMc5neZopTduCb6Ms1W5lkduiZ8UTxeZnMqR+skQX/AouLT+Oy2gsVsyA5A==",
+  "dgSpecHash": "uJLjHMsSL74ewYz5y53qlJGefTtTZVEI3iRhxKAIPK5TnVBb4YxEs9NeS8GHhzq3VnJ05yu9XBWODP05v2mkXg==",
   "success": true,
   "projectFilePath": "C:\\r2q-api-12-Oct\\R2Q.Service1\\R2Q.Common\\R2Q.Common.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\harish.sugathan\\.nuget\\packages\\dapr.aspnetcore\\1.11.0\\dapr.aspnetcore.1.11.0.nupkg.sha512",
-    "C:\\Users\\harish.sugathan\\.nuget\\packages\\dapr.client\\1.11.0\\dapr.client.1.11.0.nupkg.sha512",
+    "C:\\Users\\harish.sugathan\\.nuget\\packages\\dapr.client\\1.9.0\\dapr.client.1.9.0.nupkg.sha512",
     "C:\\Users\\harish.sugathan\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\harish.sugathan\\.nuget\\packages\\google.api.commonprotos\\2.2.0\\google.api.commonprotos.2.2.0.nupkg.sha512",
     "C:\\Users\\harish.sugathan\\.nuget\\packages\\google.protobuf\\3.15.0\\google.protobuf.3.15.0.nupkg.sha512",

@@ -22,6 +22,8 @@ namespace R2Q.Infrastructure.Constants
         #region Common
 
         public const string HtmlFileExtension = ".html";
+        public const string DaprSideCarService1Endpoint = "http://localhost:3500";
+        public const string DaprSideCarService1 = "r2q-service3";
         #endregion
     }
 }

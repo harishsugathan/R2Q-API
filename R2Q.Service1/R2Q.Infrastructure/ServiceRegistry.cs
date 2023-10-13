@@ -37,6 +37,7 @@ namespace R2Q.Infrastructure
             this IServiceCollection services,
             IConfiguration configuration)
         {
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration[InfraConstants.connectionString]));
 
             services.AddScoped<IOrmService, RepoDbOrm>();
@@ -58,7 +59,7 @@ namespace R2Q.Infrastructure
         public static void AddCustomApplicationServices(IServiceCollection services)
         {
             services.AddSingleton<ITripService, TripService>(
-                _ => new TripService(DaprClient.CreateInvokeHttpClient("r2q-service3", "http://localhost:3500")));
+  _ => new TripService(DaprClient.CreateInvokeHttpClient(InfraConstants.DaprSideCarService1, InfraConstants.DaprSideCarService1Endpoint)));
 
         }
         /// <summary>

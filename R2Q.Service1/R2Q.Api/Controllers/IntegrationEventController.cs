@@ -1,11 +1,6 @@
 ﻿using Dapr;
-using Dapr.Client.Autogen.Grpc.v1;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using R2Q.Application.Dtos.Vendor;
-using R2Q.Application.Dtos;
 using R2Q.Application.IntegrationEvents;
-using R2Q.Application.Requests.Vendor;
 using R2Q.Application.Requests.EventHandling;
 
 namespace R2Q.Service1.Api.Controllers

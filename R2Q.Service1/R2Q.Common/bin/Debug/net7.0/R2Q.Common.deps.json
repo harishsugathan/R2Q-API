@@ -8,8 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "R2Q.Common/1.0.0": {
         "dependencies": {
-          "Dapr.AspNetCore": "1.11.0",
-          "Dapr.Client": "1.11.0",
+          "Dapr.Client": "1.9.0",
           "FluentValidation": "11.7.1",
           "MediatR": "12.1.1",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
@@ -27,19 +26,7 @@
           }
         }
       },
-      "Dapr.AspNetCore/1.11.0": {
-        "dependencies": {
-          "Dapr.Client": "1.11.0",
-          "System.IO.Pipelines": "5.0.2"
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Dapr.AspNetCore.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.11.0.0"
-          }
-        }
-      },
-      "Dapr.Client/1.11.0": {
+      "Dapr.Client/1.9.0": {
         "dependencies": {
           "Google.Api.CommonProtos": "2.2.0",
           "Google.Protobuf": "3.15.0",
@@ -49,7 +36,7 @@
         "runtime": {
           "lib/netcoreapp3.1/Dapr.Client.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.11.0.0"
+            "fileVersion": "1.9.0.0"
           }
         }
       },
@@ -161,24 +148,55 @@
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0",
           "System.IO.Pipelines": "5.0.2"
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.1722.21507"
+          }
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
         }
       },
       "Microsoft.Extensions.Configuration.Abstractions/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
         }
       },
       "Microsoft.Extensions.DependencyInjection/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {},
+      "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
+        "runtime": {
+          "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
       "Microsoft.Extensions.Identity.Core/7.0.11": {
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "7.0.11",
@@ -219,9 +237,22 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
           "Microsoft.Extensions.Options": "7.0.1"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.Extensions.Logging.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/7.0.0": {},
+      "Microsoft.Extensions.Logging.Abstractions/7.0.0": {
+        "runtime": {
+          "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
       "Microsoft.Extensions.Options/7.0.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
@@ -234,7 +265,14 @@
           }
         }
       },
-      "Microsoft.Extensions.Primitives/7.0.0": {},
+      "Microsoft.Extensions.Primitives/7.0.0": {
+        "runtime": {
+          "lib/net7.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
@@ -243,7 +281,14 @@
           }
         }
       },
-      "System.IO.Pipelines/5.0.2": {},
+      "System.IO.Pipelines/5.0.2": {
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "5.0.0.1",
+            "fileVersion": "5.0.1522.11506"
+          }
+        }
+      },
       "System.Memory/4.5.3": {},
       "System.Net.Http.Json/5.0.0": {},
       "System.Runtime.CompilerServices.Unsafe/4.5.2": {},
@@ -263,19 +308,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Dapr.AspNetCore/1.11.0": {
+    "Dapr.Client/1.9.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3afB7TjSGuG/fehzQ2TjbziWOTYWx89aQEftXlI41vd603Op7+jf/QOaESiV5RTWJVL0OtifT7Yu3D2GyeqjBQ==",
-      "path": "dapr.aspnetcore/1.11.0",
-      "hashPath": "dapr.aspnetcore.1.11.0.nupkg.sha512"
-    },
-    "Dapr.Client/1.11.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-kDkDvJ+wLGpVmKoBpLKmfUzqRnZKHyM/2uv4523FeG9OmbmmGi6un3heWkcJz/K5eAhw0vasTjjJWTwj/QgkKg==",
-      "path": "dapr.client/1.11.0",
-      "hashPath": "dapr.client.1.11.0.nupkg.sha512"
+      "sha512": "sha512-a/tHunAH/Q8omFMtjXdKnfzrtl7AIpKk0f0Hp3tAxgTD0W5lxhMApADuRiDfm9Je2riXE2P0hJK980m40dhCmQ==",
+      "path": "dapr.client/1.9.0",
+      "hashPath": "dapr.client.1.9.0.nupkg.sha512"
     },
     "FluentValidation/11.7.1": {
       "type": "package",

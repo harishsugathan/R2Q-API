@@ -10,5 +10,6 @@ namespace R2Q.Application.Contracts.Services
     public interface ITripService
     {
         Task UpdateAsync(TripData trip, string accessToken);
+        Task<string> GetAsync();
     }
 }

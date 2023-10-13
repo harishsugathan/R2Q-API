@@ -87,14 +87,15 @@ namespace R2Q.Application.Requests.Vendor
             //var result = state.GetStateAsync<string>("key");
             // Publish event
             //await eventBus.PublishAsync(eventMessage);
+
             // Invoke Service
             var tripData = new TripData();
             tripData.Items = new List<TripDataItem>();
-            var tripDataDetails = new TripDataItem(1,"trip");
+            var tripDataDetails = new TripDataItem(1, "trip");
             tripData.Items.Add(tripDataDetails);
-            await tripService.UpdateAsync(tripData, request.Authorization.Substring("Bearer ".Length));
-
-
+            var response = await tripService.GetAsync();
+            responseDto.Content = new VendorDto();
+            responseDto.Content.Name = response;
             return responseDto;
         }
     }
