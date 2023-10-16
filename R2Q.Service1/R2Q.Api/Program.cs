@@ -6,6 +6,7 @@ using R2Q.Application;
 using R2Q.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Google.Api;
+using R2Q.Application.Contracts.Persistence;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Async(x => x.Console(new CompactJsonFormatter()))
@@ -81,4 +82,17 @@ app.UseEndpoints(endpoints =>
     endpoints.MapHealthChecks("/health");
     endpoints.MapSubscribeHandler();
 });
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var dbContext = services.GetRequiredService<IApplicationDbContext>();
+    await dbContext.RunMigrations();
+
+    /*var ormService = services.GetRequiredService<IOrmService>();
+    ormService.InitializeOrmService();*/
+}
+
+Log.Information("Application started.");
+
 app.Run();

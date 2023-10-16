@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using R2Q.Domain.Entities;
 
 namespace R2Q.Application.Contracts.Persistence
@@ -11,28 +9,12 @@ namespace R2Q.Application.Contracts.Persistence
     public interface IApplicationDbContext
     {
         /// <summary>
-        /// Gets or sets the users.
+        /// Gets or sets the vendors.
         /// </summary>
         /// <value>
-        /// The users.
+        /// The vendors.
         /// </value>
-        DbSet<Vendor> Vendor { get; set; }
-
-        /// <summary>
-        /// Gets or sets the roles.
-        /// </summary>
-        /// <value>
-        /// The roles.
-        /// </value>
-        DbSet<Role> Roles { get; set; }
-
-        /// <summary>
-        /// Gets or sets the user roles.
-        /// </summary>
-        /// <value>
-        /// The user roles.
-        /// </value>
-        DbSet<UserRole> UserRoles { get; set; }
+        DbSet<Vendor> Vendors { get; set; }
 
         /// <summary>
         /// Runs the migrations.

@@ -28,6 +28,7 @@ using R2Q.Common.Application.Contracts.Localization;
 using R2Q.Common.Infrastructure.Implementations.Localization;
 using R2Q.Application.Contracts.Services;
 using R2Q.Infrastructure.Implementations.Services;
+using R2Q.Application.Contracts.Persistence;
 
 namespace R2Q.Infrastructure
 {
@@ -37,8 +38,7 @@ namespace R2Q.Infrastructure
             this IServiceCollection services,
             IConfiguration configuration)
         {
-
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration[InfraConstants.connectionString]));
+            AddDbContext(services, configuration);
 
             services.AddScoped<IOrmService, RepoDbOrm>();
 
@@ -114,6 +114,21 @@ namespace R2Q.Infrastructure
                    .AddMicrosoftIdentityWebApi(configuration.GetSection("AzureAd"));
 
             services.AddScoped<IIdentityService, IdentityService>();
+        }
+
+        /// <summary>
+        /// Adds the database context.
+        /// </summary>
+        /// <param name="services">The services.</param>
+        /// <param name="configuration">The configuration.</param>
+        private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
+        {
+            // Get the connection string from the configuration
+            var connectionString = configuration.GetConnectionString(InfraConstants.ConnectionStringKey);
+
+            // Register the db context
+            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString).UseSnakeCaseNamingConvention());
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
         }
 
     }
