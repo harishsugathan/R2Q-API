@@ -17,7 +17,16 @@ public class DaprEventBus : IEventBus
 
     public async Task PublishAsync(IntegrationEvent integrationEvent)
     {
+        string daprEndpoint = "http://localhost:3500";  // Replace with your actual Dapr endpoint
+
         var topicName = integrationEvent.GetType().Name;
+
+        // Create an HttpClient configured with your custom Dapr endpoint
+        using var customHttpClient = new HttpClient { BaseAddress = new Uri(daprEndpoint) };
+
+        // Create a DaprClient instance by passing the custom HttpClient to DaprClientBuilder
+        var daprClient = new DaprClientBuilder().UseHttpEndpoint("http://localhost:3500").Build();
+
 
         logger.LogInformation(
             "Publishing event {@Event} to {PubsubName}.{TopicName}",
@@ -28,7 +37,14 @@ public class DaprEventBus : IEventBus
         // We need to make sure that we pass the concrete type to PublishEventAsync,
         // which can be accomplished by casting the event to dynamic. This ensures
         // that all event fields are properly serialized.
-        await dapr.PublishEventAsync(Constants.pubSubName, topicName, (object)integrationEvent);
+        try
+        {
+            await daprClient.PublishEventAsync(Constants.pubSubName, topicName, (object)integrationEvent);
+        }
+        catch (Exception ex)
+        {
+            throw ex.InnerException;
+        }
 
     }
 }

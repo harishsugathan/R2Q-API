@@ -1,12 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Dapr",
+    "\\Dapr\\components",
     "\\R2Q.Service1",
     "\\R2Q.Service1\\R2Q.Application",
     "\\R2Q.Service1\\R2Q.Application\\Requests",
     "\\R2Q.Service1\\R2Q.Application\\Requests\\Vendor",
-    "\\R2Q.Service1\\R2Q.Infrastructure"
+    "\\R2Q.Service1\\R2Q.Infrastructure",
+    "\\R2Q.Service1\\R2Q.Infrastructure\\Implementations",
+    "\\R2Q.Service1\\R2Q.Infrastructure\\Implementations\\Services"
   ],
-  "SelectedNode": "\\R2Q.Service1\\R2Q.Infrastructure\\ServiceRegistry.cs",
+  "SelectedNode": "\\R2Q.Service1\\R2Q.Application\\Requests\\Vendor\\VendorCommand.cs",
   "PreviewInSolutionExplorer": false
 }

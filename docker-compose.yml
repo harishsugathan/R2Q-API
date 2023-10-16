@@ -12,6 +12,15 @@ services:
     networks:
       hello-dapr:
         ipv4_address: 172.18.0.7
+
+  redis-ui:
+    image: rediscommander/redis-commander:latest
+    ports:
+      - "8081:8081"
+    environment:
+      - REDIS_HOSTS=local:redis:6379  # Connect to the Redis service running on the custom network
+    networks:
+      - hello-dapr
         
   ############################
    # Zipkin Tracing
@@ -63,6 +72,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
       - 27017:27017
+    networks:
+      - hello-dapr
   ############################
   # Service1 app + Dapr sidecar
   ############################
@@ -72,7 +83,6 @@ services:
       dockerfile: R2Q.Api/Dockerfile 
     ports:
       - "3500:3500"
-      - "50006:50001"
     image: r2q-service1-api:latest
     networks:
       - hello-dapr
@@ -83,8 +93,7 @@ services:
       "-app-port", "80",      
       "-placement-host-address", "dapr-placement:50000",
       "-components-path", "/components",
-      "-config", "/configuration/R2Q-config.yaml",
-      "-dapr-http-port", "3500"
+      "-config", "/configuration/R2Q-config.yaml"
       ]   
     volumes:
       - "./dapr/components/:/components"
@@ -104,7 +113,6 @@ services:
       dockerfile: R2Q.Api/Dockerfile 
     ports:
       - "3501:3501"
-      - "50007:50001"
     image: r2q-service2-api:latest
     networks:
       - hello-dapr
@@ -115,8 +123,7 @@ services:
       "-app-port", "80",
       "-placement-host-address", "dapr-placement:50000",
       "-components-path", "/components",
-      "-config", "/configuration/R2Q-config.yaml",
-      "-dapr-http-port", "3501"
+      "-config", "/configuration/R2Q-config.yaml"
       ]  
     volumes:
       - "./dapr/components/:/components"
@@ -136,7 +143,6 @@ services:
       dockerfile: R2Q.Api/Dockerfile 
     ports:
       - "3502:3502"
-      - "50008:50001"
     image: r2q-service3-api:latest
     networks:
       - hello-dapr
@@ -147,8 +153,7 @@ services:
       "-app-port", "80",
       "-placement-host-address", "dapr-placement:50000",
       "-components-path", "/components",
-      "-config", "/configuration/R2Q-config.yaml",
-      "-dapr-http-port", "3502"
+      "-config", "/configuration/R2Q-config.yaml"
       ]  
     volumes:
       - "./dapr/components/:/components"
